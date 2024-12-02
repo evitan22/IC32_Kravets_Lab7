@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="task1.css">
+    <style>
+        body {
+            background-color: greenyellow;
+        }
+    </style>
 </head>
 <body>
     <h1>ЗАВДАННЯ 1</h1>
     <button>SHOW ME</button>
-    <textarea></textarea>
+    <input class="textzona"></input>
+
+    <script>
+        let data = document.querySelector('.textzona');
+        let button = document.querySelector('button');
+
+        button.onclick = function() {
+            console.log(data.value);
+        }
+    </script>
 </body>
 </html>
