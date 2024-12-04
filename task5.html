@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: greenyellow;
+        }
+        #place {
+            background-color: green;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        #morePlace {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="morePlace">
+        <h1 class="taskTitle">ЗАВДАННЯ 5</h1>
+        <div id="place"></div>
+    </div>
+
+    <script>
+        let bigButton = document.getElementById('morePlace');
+        
+        bigButton.addEventListener('click', (e) => {
+            const isClickedOnPlace = e.target.id === "place";
+            console.log(isClickedOnPlace);
+        })
+    </script>
+</body>
+</html>
