@@ -19,13 +19,22 @@
     </form>
 
     <script>
+        let obj = {};
         let form = document.querySelector('form');
         const inputsArray = [...document.querySelectorAll('input')];
+        const elements = form.elements;
+        const inputEmail = elements[0];
+        const inputPassword = elements[1];
 
         form.addEventListener('submit', (e) => {
             e.preventDefault(); 
-            console.log(inputsArray, inputsArray.some((inp) => inp.value.lengh == 0))
             if(inputsArray.some((inp) => !inp.value)) alert('All form fields must be filled in');
+            else {
+                obj.email = inputEmail.value;
+                obj.password = inputPassword.value;
+                console.log(obj);
+                form.reset();
+            }
         });
     </script>
 </body>

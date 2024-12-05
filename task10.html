@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="controls">
+        <input type="number" min="1" max="100" step="1" />
+        <button type="button" data-create>Create</button>
+        <button type="button" data-destroy>Destroy</button>
+    </div>
+    <div id="boxes"></div>
+
+    <script>
+        function getRandomHexColor() {
+            return `#${Math.floor(Math.random() * 16777215)
+            .toString(16)
+            .padStart(6, 0)}`;
+        }
+
+        let number = document.querySelector('input');
+        let buttonCreate = document.querySelector('[data-create]');
+        let buttonDestroy = document.querySelector('[data-destroy]');
+        const boxes = document.getElementById('boxes');
+
+        function createBoxes(amount) {
+            for (let i = 0; i < amount; i++) {
+                let el = document.createElement('div');
+                el.style.backgroundColor = getRandomHexColor();
+                el.style.width = `${30+i*10}px`;
+                el.style.height = `${30+i*10}px`;
+                el.style.marginBottom = '10px';
+                boxes.append(el);
+            }
+        }
+
+        function destroyBoxes() {
+            boxes.innerHTML = '';
+        }
+        buttonDestroy.addEventListener('click', destroyBoxes);
+
+        buttonCreate.addEventListener('click', () => {
+            destroyBoxes();
+            let userNumber = +document.querySelector('input').value;
+            if (userNumber >= 1 && userNumber <= 100) {
+                createBoxes(userNumber);
+            }
+            number.value = '';
+        })
+    </script>
+</body>
+</html>
